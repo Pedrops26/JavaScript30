@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paisa Drum</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="arepa.png" type="image" sizes="16x16">
+</head>
+<body>
+<nav class="aa">
+    <img class="paisa" src="paisa.png">
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">Puespues</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">Berriondo</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound2">Practicamente</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">Eavemaria</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">Bobo</span>
+    </div>
+    <div data-key="72" class="key" class="prac">
+      <kbd>H</kbd>
+      <span class="sound">Problema</span>
+    </div>
+  </nav>
+  <audio data-key="65" src="sounds/puespuespues.wav"></audio>
+  <audio data-key="83" src="sounds/berriondo.wav"></audio>
+  <audio data-key="68" src="sounds/practicamente.wav"></audio>
+  <audio data-key="70" src="sounds/eavemaria.wav"></audio>
+  <audio data-key="71" src="sounds/bobo.wav"></audio>
+  <audio data-key="72" src="sounds/problema.wav"></audio>
+
+<script>
+
+function playSound(e){
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        const paisa = document.querySelector(`img[data-key="${e.keyCode}"]`);
+        if(!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+        key.classList.add('playing');
+    }
+
+function removeTransition(e){
+  if(e.propertyName !== 'transform') return;
+  this.classList.remove('playing');
+}
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+window.addEventListener('keydown', playSound);
+</script>
+<h1>#CodexJavaScript30</h1>
+
+</body>
+</html>
