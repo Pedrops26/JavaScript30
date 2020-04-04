@@ -7,6 +7,8 @@
     <body>
         <h2>#CodexJavaScript30</h2>
         <div class="controls">
+            <label for="blur">Blur:</label>
+            <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
             <label for="base">Border:</label>
             <input type="color" name="base1" id="base" value="#aaabac">
             <label for="base">Color #1:</label>
@@ -42,6 +44,7 @@
                 --base4: #aaabac;
                 --base5: #aaabac;
                 --base6: #aaabac;
+                --blur: 10px;
             }
 
             .bordercolor{
@@ -51,12 +54,14 @@
                 left: 460px;
                 top: 220px;
                 background: var(--base1);
+                filter: blur(var(--blur));
             }
 
             .octocat{
                 position: absolute;
                 left: 475px;
                 top: 233px;
+                filter: blur(var(--blur));
             }
 
             img{
@@ -70,6 +75,7 @@
                 width: 100px;
                 height: 400px;
                 background: var(--base2);
+                filter: blur(var(--blur));
             }
 
             .shape2{
@@ -79,6 +85,7 @@
                 width: 100px;
                 height: 100px;
                 background: var(--base2);
+                filter: blur(var(--blur));
             }
             
             .shape4{
@@ -88,6 +95,7 @@
                 width: 400px;
                 height: 100px;
                 background: var(--base2);
+                filter: blur(var(--blur));
             }
 
             .shape5{
@@ -97,6 +105,7 @@
                 width: 100px;
                 height: 70px;
                 background: var(--base2);
+                filter: blur(var(--blur));
             }
 
             .shape6{
@@ -106,6 +115,7 @@
                 width: 175px;
                 height: 300px;
                 background: var(--base3);
+                filter: blur(var(--blur));
             }
 
             .shape7{
@@ -115,6 +125,7 @@
                 width: 200px;
                 height: 148px;
                 background: var(--base3);
+                filter: blur(var(--blur));
                 border-radius: 400px;
             }
 
@@ -125,6 +136,7 @@
                 width: 42px;
                 height: 60px;
                 background: var(--base4);
+                filter: blur(var(--blur));
                 border-radius: 200px;
             }
 
@@ -136,6 +148,7 @@
                 width: 42px;
                 height: 60px;
                 background: var(--base4);
+                filter: blur(var(--blur));
                 border-radius: 200px;
             }
 
@@ -146,6 +159,7 @@
                 width: 50px;
                 height: 50px;
                 background: var(--base5);
+                filter: blur(var(--blur));
             }
 
             .medal{
@@ -155,6 +169,7 @@
                 width: 40px;
                 height: 50px;
                 background: var(--base6);
+                filter: blur(var(--blur));
             }
 
             body{
