@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array</title>
+  <link rel="icon" href="logo.jpg" type="image" sizes="16x16">
+</head>
+<body>
+  <script>
+    console.log("In memory of Tim Bergling, Avicii◢◤ (1989-2018)");
+    const songs = [
+      { name: 'Wake Me Up', with: 'Aloe Blacc', album: 'True', year: 2013, views: 1910 },
+      { name: 'Hey Brother', with: 'Dan Tyminski', album: 'True', year: 2013, views: 493 },
+      { name: 'The Days', with: 'Robbie Williams', album: 'Stories', year: 2014, views: 180 },
+      { name: 'Loneley Together', with: 'Rita Ora', album: 'AVĪCI (01)', year: 2017, views: 153 },
+      { name: 'Without You', with: 'Sandro Cavazza', album: 'AVĪCI (01)', year: 2017, views: 130 },
+      { name: 'Waiting For Love', with: 'Cherry Ghost', album: 'Stories', year: 2015, views: 709 },
+      { name: 'Levels', with: 'Etta James', album: 'No album', year: 2011, views: 474 },
+      { name: 'I Could Be The One', with: 'Nicky Romero', album: 'No album', year: 2012, views: 308 },
+      { name: 'You Make Me', with: 'Salem Al Fakir', album: 'True', year: 2013, views: 135 },
+      { name: 'Silhouettes', with: 'Salem Al Fakir', album: 'No album', year: 2012, views: 960 },
+      { name: 'Addicted To You', with: 'Audra Mae', album: 'True', year: 2013, views: 264 },
+      { name: 'The Nights', with: 'Nicholas Furlong', album: 'Stories', year: 2014, views: 538 }
+    ];
+
+    const people = ['Nicholas Furlong', 'Audra Mae', 'Salem Al Fakir', 'Nicky Romero', 'Etta James', 'Cherry Ghost',
+                    'Sandro Cavazza', 'Rita Ora', 'Robbie Williams', 'Dan Tyminski', 'Aloe Blacc'];
+
+    console.log("Some of his songs most viewed(millions) on YouTube: ");
+    const mostViews = songs.filter(song => (song.views > 700));
+    console.table(mostViews);
+
+    console.log("Some of his last songs on YouTube: ");
+    const last = songs.filter(song => (song.year > 2016));
+    console.table(last);
+
+    console.log("Songs from oldest to newest: ");
+    const ordered = songs.sort((a, b) => a.year > b.year ? 1 : -1);
+    console.table(ordered);
+
+    const totalViews = songs.reduce((total, song) => {
+        return total + song.views;
+    }, 0);
+    console.log("How many views do this songs? "+totalViews+" million views.");
+
+    // Sort the people alphabetically by last name
+    console.log("Sorting people who he colaborated alphabetically by name: ");
+      const alpha = people.sort((lastOne, nextOne) =>{
+          const [aWith] = lastOne.split(', ');
+          const [bWith] = nextOne.split(', ');
+          return aWith > bWith ? 1 : -1;
+        });
+        console.table(alpha);
+
+    // 8. Reduce Exercise
+    // Sum up the instances of each of these
+    console.log("Sum up most viewed songs by year: ");
+    const data = ['2013', '2013', '2014', '2017', '2017', '2015', '2011', '2012', '2013', '2012', '2013', '2014'];
+    const songYear = data.reduce(function(a, b) {
+      if (!a[b]) {
+        a[b] = 0;
+      }
+      a[b]++;
+      return a;
+    }, {});
+    console.log(songYear);
+
+    console.log("Sum up most viewed songs by album: ");
+    const data2 = ['True', 'True', 'Stories', 'AVĪCI (01)', 'AVĪCI (01)', 'Stories', 'No album', 'No album', 'True', 'No album', 'True', 'Stories'];
+    const songAlbum = data2.reduce(function(a, b) {
+      if (!a[b]) {
+        a[b] = 0;
+      }
+      a[b]++;
+      return a;
+    }, {});
+    console.log(songAlbum);
+    
+  </script>
+  <center>
+    <h3>Press 'CTRL + SHIFT + I' and clic CONSOLE</h3>
+    <h2>"One day you'll leave this world behind,<br>so live a life you will remember"</h2>
+    <h5>#CodexJavaScript30</h5>
+  </center>
+  <style>
+    body{
+      background-color: black;
+      background-image: url(logo.jpg);
+      background-position:top;
+      background-repeat: no-repeat;
+      background-size: 500px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    h3, h2, h5{
+      color: white;
+    }
+
+    h2{
+      margin-top: 380px;
+    }
+
+    h5{
+      margin-top: 50px;
+    }
+  </style>
+</body>
+</html>
