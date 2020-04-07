@@ -51,10 +51,8 @@ html {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
     margin: 0;
     padding: 20px;
-
     display: flex;
     justify-content: space-between;
-    text-transform: capitalize;
   }
   
   .suggestions li:nth-child(even) {
