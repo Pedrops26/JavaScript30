@@ -84,12 +84,12 @@
     console.log("◢◤ There is at least one song with 3 awards?");
     const award = songs.some(song => (song.won >= 3));
     console.log({award});
+    const songWon = songs.filter(song => (song.won >= 3));
+    console.table(songWon);
     console.log("'Wake me up' won: ");
     console.log("Top dance/electronic song, Billboard Music Awards, 2014");
     console.log("EDM Song of year, iHeartRadio Music Awards, 2014");
     console.log("Choice EDM Song, Teen Choice Awards, 2014");
-    const songWon = songs.filter(song => (song.won >= 3));
-    console.table(songWon);
 
     const totalAwardsWon = songs.reduce((total, song) => {
         return total + song.won;
