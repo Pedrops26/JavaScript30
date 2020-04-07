@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon.jpg" type="image" sizes="16x16">
+</head>
+<body>
+<center><h1>IMDb Top 50 movies</h1>
+    <p>#CodexJavaScript30</p>
+</center>
+  <form class="search-form">
+    <input type="text" class="search" placeholder="🎬 Movie or year 🎬">
+    <ul class="suggestions">
+      <li>Filter for a name</li>
+      <li>or a year</li>
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Pedrops26/023ec214f650df7b96cd46260d3d03f5/raw/fc57ca3e359e7224ae2a471f4578b7aa73ef1161/moviestop50.json';
+
+const films = [];
+fetch(endpoint)
+  .then(blob => blob.json())
+  .then(data => films.push(...data));
+
+function findMatches(wordToMatch, films) {
+  return films.filter(movie => {
+    const regex = new RegExp(wordToMatch, 'gi');
+    return movie.title.match(regex) || movie.year.match(regex)
+  });
+}
+
+function displayMatches() {
+  const matchArray = findMatches(this.value, films);
+  const html = matchArray.map(movie => {
+    const regex = new RegExp(this.value, 'gi');
+    const titleName = movie.title.replace(regex, `<span class="hl">${this.value}</span>`);
+    const yearRelease = movie.year.replace(regex, `<span class="hl">${this.value}</span>`);
+    return `
+      <li>
+        <span class="name">${titleName}${"("+yearRelease+")"}</span>
+        <span class="rate">${movie.rate}</span>
+      </li>
+    `;
+  }).join('');
+  suggestions.innerHTML = html;
+}
+
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+
+</script>
+  </body>
+</html>

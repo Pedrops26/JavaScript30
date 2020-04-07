@@ -1,0 +1,80 @@
+html {
+    box-sizing: border-box;
+    background: rgb(145, 25, 25);
+    background-repeat: repeat-y;
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 200;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  input {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .search-form {
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  input.search {
+    margin: 0;
+    text-align: center;
+    outline: 0;
+    border: 10px solid rgb(158, 158, 158);
+    width: 120%;
+    left: -10%;
+    position: relative;
+    top: 10px;
+    z-index: 2;
+    border-radius: 5px;
+    font-size: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  }
+  
+  .suggestions {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /*perspective: 20px;*/
+  }
+  
+  .suggestions li {
+    background: white;
+    list-style: none;
+    border-bottom: 1px solid rgb(158, 158, 158);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    margin: 0;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+  }
+  
+  .suggestions li:nth-child(even) {
+    transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+    background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
+    border: 10px solid rgb(185, 185, 185);
+  }
+  
+  .suggestions li:nth-child(odd) {
+    transform: perspective(100px) rotateX(-3deg) translateY(3px);
+    background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
+    border: 10px solid rgb(185, 185, 185);
+  }
+  
+  span.rank {
+    font-size: 15px;
+  }
+
+  .hl {
+    background: #c0c0c0;
+    color: white;
+  }
+  
