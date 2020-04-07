@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array</title>
+  <link rel="icon" href="logo.jpg" type="image" sizes="16x16">
+</head>
+<body>
+  <script>
+    console.log("In memory of Tim Bergling, Avicii◢◤ (1989-2018)");
+    console.log("(Exercise with top 12 songs most viewed of Avicii on Youtube)");
+    const songs = [
+      { name: 'Wake Me Up', with: 'Aloe Blacc', album: 'True', year: 2013, views: 1910, won: 3, nom: 9},
+      { name: 'Hey Brother', with: 'Dan Tyminski', album: 'True', year: 2013, views: 493, won: 0, nom: 1},
+      { name: 'The Days', with: 'Robbie Williams', album: 'Stories', year: 2014, views: 180, won: 0, nom: 2},
+      { name: 'Loneley Together', with: 'Rita Ora', album: 'AVĪCI (01)', year: 2017, views: 153, won: 1, nom: 2},
+      { name: 'Without You', with: 'Sandro Cavazza', album: 'AVĪCI (01)', year: 2017, views: 130, won: 0, nom: 1},
+      { name: 'Waiting For Love', with: 'Cherry Ghost', album: 'Stories', year: 2015, views: 709, won: 0, nom: 1},
+      { name: 'Levels', with: 'Etta James', album: 'No album', year: 2011, views: 474, won: 1, nom: 5},
+      { name: 'I Could Be The One', with: 'Nicky Romero', album: 'No album', year: 2012, views: 308, won: 0, nom: 0},
+      { name: 'You Make Me', with: 'Salem Al Fakir', album: 'True', year: 2013, views: 135, won: 0, nom: 0},
+      { name: 'Silhouettes', with: 'Salem Al Fakir', album: 'No album', year: 2012, views: 960, won: 0, nom: 1},
+      { name: 'Addicted To You', with: 'Audra Mae', album: 'True', year: 2013, views: 264, won: 0, nom: 0},
+      { name: 'The Nights', with: 'Nicholas Furlong', album: 'Stories', year: 2014, views: 538, won: 0, nom: 1}
+    ];
+
+    const people = ['Nicholas Furlong', 'Audra Mae', 'Salem Al Fakir', 'Nicky Romero', 'Etta James', 'Cherry Ghost',
+                    'Sandro Cavazza', 'Rita Ora', 'Robbie Williams', 'Dan Tyminski', 'Aloe Blacc'];
+
+    console.log("◢◤ Some of his songs most viewed(millions) on YouTube: ");
+    const mostViews = songs.filter(song => (song.views > 700));
+    console.table(mostViews);
+
+    console.log("◢◤ Some of his last songs on YouTube: ");
+    const last = songs.filter(song => (song.year > 2016));
+    console.table(last);
+
+    console.log("◢◤ Songs from oldest to newest: ");
+    const ordered = songs.sort((a, b) => a.year > b.year ? 1 : -1);
+    console.table(ordered);
+
+    const totalViews = songs.reduce((total, song) => {
+        return total + song.views;
+    }, 0);
+    console.log("◢◤ How many views do this songs? "+totalViews+" million views.");
+
+    console.log("◢◤ Sorting people who he colaborated alphabetically by name: ");
+      const alpha = people.sort((lastOne, nextOne) =>{
+          const [aWith] = lastOne.split(', ');
+          const [bWith] = nextOne.split(', ');
+          return aWith > bWith ? 1 : -1;
+        });
+        console.table(alpha);
+
+    console.log("◢◤ Sum up most viewed songs by year: ");
+    const data = ['2013', '2013', '2014', '2017', '2017', '2015', '2011', '2012', '2013', '2012', '2013', '2014'];
+    const songYear = data.reduce(function(a, b) {
+      if (!a[b]) {
+        a[b] = 0;
+      }
+      a[b]++;
+      return a;
+    }, {});
+    console.table(songYear);
+
+    console.log("◢◤ All songs are from an album?");
+    const allAlbum = songs.every(song => (song.album == "True" || song.album == "Stories" || song.album == "AVĪCI (01)"));
+    console.log({allAlbum});
+    console.log("Some of his songs without album: ");
+    const wAlbum = songs.filter(song => (song.album == "No album"));
+    console.table(wAlbum);
+
+    console.log("◢◤ Sum up most viewed songs by album: ");
+    const data2 = ['True', 'True', 'Stories', 'AVĪCI (01)', 'AVĪCI (01)', 'Stories', 'No album', 'No album', 'True', 'No album', 'True', 'Stories'];
+    const songAlbum = data2.reduce(function(a, b) {
+      if (!a[b]) {
+        a[b] = 0;
+      }
+      a[b]++;
+      return a;
+    }, {});
+    console.table(songAlbum);
+
+    console.log("◢◤ There is at least one song with 3 awards?");
+    const award = songs.some(song => (song.won >= 3));
+    console.log({award});
+    console.log("'Wake me up' won: ");
+    console.log("Top dance/electronic song, Billboard Music Awards, 2014");
+    console.log("EDM Song of year, iHeartRadio Music Awards, 2014");
+    console.log("Choice EDM Song, Teen Choice Awards, 2014");
+    const songWon = songs.filter(song => (song.won >= 3));
+    console.table(songWon);
+
+    const totalAwardsWon = songs.reduce((total, song) => {
+        return total + song.won;
+    }, 0);
+
+    const totalNom = songs.reduce((total, song) => {
+        return total + song.nom;
+    }, 0);
+    console.log("◢◤ How many awards he won? He won in totally "+(totalAwardsWon+16)+" awards from "+(totalNom+17)+" nominations, even after his dead.");
+
+    const favSong = songs.find(fav => fav.views === 538);
+    console.log("◢◤ My favorite Avicii's song: ");
+    console.table(favSong);
+
+/*    const favAlbum = songs.findIndex(song => song.album === "True");
+    console.log(favAlbum);
+    const aFavAlbum = [
+      ...songs.slice(0, favAlbum),
+      ...songs.slice(favAlbum + 1) */
+
+  </script>
+   <center>
+    <h3>Press 'CTRL + SHIFT + I' and click CONSOLE</h3>
+    <audio src="The Nights - Avicii.mp3" controls></audio>
+    <h2>"One day you'll leave this world behind,<br>so live a life you will remember"</h2>
+    <h3>-Tim Bergling, <a href="https://www.youtube.com/playlist?list=OLAK5uy_kwecFXrFtmZfjekXIOt3ZN5ZHrPOF7ZlA">Avicii</a></h3>
+    <h5>#CodexJavaScript30</h5>
+  </center>
+  <style>
+    body{
+      background-color: black;
+      background-image: url(logo.jpg);
+      background-position:top;
+      background-repeat: no-repeat;
+      background-size: 500px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    audio{
+      width: 250px;
+      height: 40px;
+      margin-top: 335px;
+      
+    }
+
+    h3, h2, h5{
+      color: white;
+    }
+
+    h2{
+      margin-top: 30px;
+    }
+
+    h5{
+      margin-top: 50px;
+    }
+
+  </style>
+</body>
+</html>
