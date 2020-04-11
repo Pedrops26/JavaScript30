@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <link rel="icon" href="icon.png" type="image" sizes="16x16">
+  <title>Make your list</title>
+</head>
+<body>
+  <style>
+
+    html {
+      font-family: 'Handlee';
+      background: #ffc600;
+    }
+
+    #press, #press2{
+        float: left;
+        margin-left: 75px;
+    }
+
+    
+    .inbox {
+      width: fit-content;
+      margin: 50px auto;
+      background: rgb(255, 239, 151);
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+    }
+    
+
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #D1E2FF;
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    input:checked + p {
+      text-decoration: line-through;
+    }
+
+    input[type="checkbox"] {
+      margin: 20px;
+      border-radius: 20px;
+    }
+
+    input[type="text"]{
+        background-color: rgb(255, 239, 151);
+        font-family: 'Handlee';
+        width: 300px;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 2px solid rgb(214, 228, 252);
+        font-size: 25px;
+        height: 25px;
+
+    }
+
+    p {
+      margin: 0;
+      padding: 20px;
+      transition: background 0.2s;
+      flex: 1;
+      font-family: 'Handlee';
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid rgb(226, 123, 123);
+    }
+  </style>
+   <!--
+   The following is a common layout you would see in an email client.
+
+   When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+
+  -->
+  <center> 
+    <h2 id="press" onclick="changeAction()">Save</h2><h2 id="press2" onclick="changeAction()"></h2>
+    </center>
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox">
+      <p id="line1"><input type="text" id="txt1" value=""></p>
+    </div>
+    <div class="item">
+        <input type="checkbox">
+        <p id="line2"><input type="text" id="txt2" value=""></p>
+      </div>
+      <div class="item">
+        <input type="checkbox">
+        <p id="line3"><input type="text" id="txt3" value=""></p>
+      </div>
+      <div class="item">
+        <input type="checkbox">
+        <p id="line4"><input type="text" id="txt4" value=""></p>
+      </div>
+      <div class="item">
+        <input type="checkbox">
+        <p id="line5"><input type="text" id="txt5" value=""></p>
+      </div>
+      <div class="item">
+        <input type="checkbox">
+        <p id="line6"><input type="text" id="txt6" value=""></p>
+      </div>
+      <div class="item">
+        <input type="checkbox">
+        <p id="line7"><input type="text" id="txt7" value=""></p>
+      </div>
+      <div class="item">
+        <input type="checkbox">
+        <p id="line8"><input type="text" id="txt8" value=""></p>
+      </div>
+      <div class="item">
+        <input type="checkbox">
+        <p id="line9"><input type="text" id="txt9" value=""></p>
+      </div>  
+  </div>      
+<script>
+const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+let lastChecked;
+
+function handleCheck(e){
+    let inBetween = false;
+    if(e.shiftKey && this.checked){
+        checkboxes.forEach(checkbox => {
+            console.log(checkbox);
+            if(checkbox === this || checkbox === lastChecked){
+                inBetween = !inBetween;
+            }
+
+            if(inBetween){
+                checkbox.checked = true;
+            }
+        });
+    }
+    lastChecked = this;
+}
+
+checkboxes.forEach(checkbox => checkbox.addEventListener('click',
+    handleCheck));
+
+let actions = true;
+function changeAction() {
+  var x1 = document.getElementById("txt1").value;
+  var x2 = document.getElementById("txt2").value;
+  var x3 = document.getElementById("txt3").value;
+  var x4 = document.getElementById("txt4").value;
+  var x5 = document.getElementById("txt5").value;
+  var x6 = document.getElementById("txt6").value;
+  var x7 = document.getElementById("txt7").value;
+  var x8 = document.getElementById("txt8").value;
+  var x9 = document.getElementById("txt9").value;
+
+  const press = document.getElementById('press');
+  const press2 = document.getElementById('press2');
+    if(actions === true){
+        actions = false;
+  document.getElementById("line1").innerHTML = x1;
+  document.getElementById("line2").innerHTML = x2;
+  document.getElementById("line3").innerHTML = x3;
+  document.getElementById("line4").innerHTML = x4;
+  document.getElementById("line5").innerHTML = x5;
+  document.getElementById("line6").innerHTML = x6;
+  document.getElementById("line7").innerHTML = x7;
+  document.getElementById("line8").innerHTML = x8;
+  document.getElementById("line9").innerHTML = x9;
+  
+  document.getElementById("press").innerHTML = "";
+  //document.getElementById("press2").innerHTML="Change";
+  console.log(actions);
+
+
+    }/* else {
+        const input = document.querySelector('input');
+        document.getElementById("line1").innerHTML = "<input type='text' id='myText' value=''>";
+        input.value = x1;
+        document.getElementById("press").innerHTML = "Save";
+  document.getElementById("press2").innerHTML="";
+  actions = true;
+  console.log(actions);
+
+    } */
+
+}    
+
+
+</script>
+</body>
+</html>
