@@ -131,7 +131,6 @@ function handleCheck(e){
             if(checkbox === this || checkbox === lastChecked){
                 inBetween = !inBetween;
             }
-
             if(inBetween){
                 checkbox.checked = true;
             }
@@ -161,6 +160,7 @@ function changeAction(){
     document.getElementById("line9").innerHTML = document.getElementById("txt9").value; 
     document.getElementById("press").innerHTML = "";
     document.getElementById("press2").innerHTML = "Click here <br>to change";
+    
     actions = false;
   } else {
     actions = true;
