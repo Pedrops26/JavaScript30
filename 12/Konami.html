@@ -7,11 +7,12 @@
 
 </head>
 <body>
-    <img src="text.png" class="text">
+    <img src="text.png" class="text">    
+    <img src="text2.png" class="text2">
     <center>
-        <img src="codex.png" width="225px">
-        <div id="test">
-            <img src="cj.png" class="cj">
+        <img src="codex.png" class="codex">
+        <div id="screen">
+            <div id="player"></div>
             <div id="image"></div>
 
             <div class="test2"></div>
@@ -21,21 +22,22 @@
 
 <script>
     const pressed = [];
-    const secretCode = 'wesbos';
     const codeTanker = 'tanker';
     const codeVortex = 'vortex';
-    const codeMonster = 'onster';
-    const codeNone = 'none';
+    const codeMonster = 'monster';
+    const codeMoto = 'moto';
+    const codeNone = 'none'; 
+    const codeCj = 'player1';
+    const codeBig = 'player2';
+    const codeCapucho = 'player3';
 
-    
     const image = document.getElementById('image');
-
-    var visible = true;
+    const player = document.getElementById('player');
 
     window.addEventListener('keyup', (e) =>{
         console.log(e.key);
         pressed.push(e.key);
-        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+        pressed.splice(-codeMonster.length - 1, pressed.length - codeMonster.length);
 
         if(pressed.join('').includes(codeTanker)){
             image.style.backgroundImage = 'url(tanker.png)';
@@ -46,12 +48,32 @@
         if(pressed.join('').includes(codeMonster)){
             image.style.backgroundImage = 'url(monster.png)';     
         }
+        if(pressed.join('').includes(codeMoto)){
+            image.style.backgroundImage = 'url(moto.png)';     
+        }
         if(pressed.join('').includes(codeNone)){
             image.style.backgroundImage = 'url()';     
         }
+
+        if(pressed.join('').includes(codeCj)){
+            player.style.backgroundImage = 'url(cj.png)';
+            player.style.height = '310px';
+            player.style.marginTop = '99px';
+            player.style.width = '165px';     
+        }
+        if(pressed.join('').includes(codeCapucho)){
+            player.style.backgroundImage = 'url(capucho.png)';
+            player.style.height = '310px';
+            player.style.marginTop = '99px';
+            player.style.width = '165px';     
+        }
+        if(pressed.join('').includes(codeBig)){
+            player.style.backgroundImage = 'url(bigsmoke.png)'; 
+            player.style.height = '280px';
+            player.style.marginTop = '130px';
+            player.style.width = '200px';
+        }
         console.log(pressed);
-
-
     });
 </script>
 <style>
@@ -60,19 +82,28 @@
         background-position: center;
         background-size: cover;
     }
-
-    .text{
+    
+    .codex{
         width: 225px;
-        float: left;
-        margin-top: 470px;
-        position: absolute;
     }
 
     .logo{
+        width: 200px;
         margin-top: 5px;
     }
+    .text{
+        width: 225px;
+        margin-top: 470px;
+        position: absolute;
+    }
+    .text2{
+        width: 225px;
+        margin-top: 470px;
+        position: absolute;
+        right: 0px;
+    }
 
-    #test{
+    #screen{
         width: 760px;
         height: 410px;
         background: url(barrio.jpg);
@@ -81,11 +112,17 @@
         margin-top: 5px;
     }
 
-    .cj{
+    #player{
         float: left;
         height: 310px;
         margin-top: 99px;
         margin-left: 70px;
+        width: 165px;
+        background-image: url(cj.png);
+        background-size: cover;
+        background-position: bottom;
+        background-color: transparent;
+        position: static;
     }
 
     #image{
@@ -96,7 +133,7 @@
         background-size: cover;
         background-position: bottom;
         background-color: transparent;
-        position: fixed;
+        position: absolute;
     }
 </style>
 </body>
