@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GTA San Andreas - Konami tricks</title>
+  <link rel="icon" href="logo.png" type="image" sizes="16x16">
+
+</head>
+<body>
+    <img src="text.png" class="text">
+    <center>
+        <img src="codex.png" width="225px">
+        <div id="test">
+            <img src="cj.png" class="cj">
+            <div id="image"></div>
+
+            <div class="test2"></div>
+        </div>
+        <img src="logo.png" width="200px" class="logo">
+    </center>
+
+<script>
+    const pressed = [];
+    const secretCode = 'wesbos';
+    const codeTanker = 'tanker';
+    const codeVortex = 'vortex';
+    const codeMonster = 'onster';
+    const codeNone = 'none';
+
+    
+    const image = document.getElementById('image');
+
+    var visible = true;
+
+    window.addEventListener('keyup', (e) =>{
+        console.log(e.key);
+        pressed.push(e.key);
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+
+        if(pressed.join('').includes(codeTanker)){
+            image.style.backgroundImage = 'url(tanker.png)';
+        }      
+        if(pressed.join('').includes(codeVortex)){
+            image.style.backgroundImage = 'url(vortex.png)';     
+        }
+        if(pressed.join('').includes(codeMonster)){
+            image.style.backgroundImage = 'url(monster.png)';     
+        }
+        if(pressed.join('').includes(codeNone)){
+            image.style.backgroundImage = 'url()';     
+        }
+        console.log(pressed);
+
+
+    });
+</script>
+<style>
+    body{
+        background-image: url(fondo.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .text{
+        width: 225px;
+        float: left;
+        margin-top: 470px;
+        position: absolute;
+    }
+
+    .logo{
+        margin-top: 5px;
+    }
+
+    #test{
+        width: 760px;
+        height: 410px;
+        background: url(barrio.jpg);
+        background-position: center;
+        background-size: cover;
+        margin-top: 5px;
+    }
+
+    .cj{
+        float: left;
+        height: 310px;
+        margin-top: 99px;
+        margin-left: 70px;
+    }
+
+    #image{
+        width: 280px;
+        height: 280px;
+        margin-left: 315px;
+        margin-top: 75px;
+        background-size: cover;
+        background-position: bottom;
+        background-color: transparent;
+        position: fixed;
+    }
+</style>
+</body>
+</html>
