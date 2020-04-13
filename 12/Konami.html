@@ -7,6 +7,7 @@
 
 </head>
 <body>
+    <audio src="gta.mp3" autoplay class="audioGTA"></audio>
     <img src="text.png" class="text">    
     <img src="text2.png" class="text2">
     <center>
@@ -14,13 +15,16 @@
         <div id="screen">
             <div id="player"></div>
             <div id="image"></div>
-
             <div class="test2"></div>
         </div>
         <img src="logo.png" width="200px" class="logo">
     </center>
 
 <script>
+    const audioGTA = document.querySelector('.audioGTA');
+    function playAudio(){
+      audioGTA.play();
+  }
     const pressed = [];
     const codeTanker = 'tanker';
     const codeVortex = 'vortex';
@@ -79,12 +83,13 @@
             player.style.height = '310px';
             player.style.marginTop = '100px';
             player.style.width = '130px';   
-            player.style.marginLeft = '125px';
-
-              
+            player.style.marginLeft = '125px';             
         }
         console.log(pressed);
+        playAudio();
     });
+
+
 </script>
 <style>
     body{
