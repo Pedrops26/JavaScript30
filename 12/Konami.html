@@ -30,6 +30,7 @@
     const codeCj = 'player1';
     const codeBig = 'player2';
     const codeCapucho = 'player3';
+    const codeMario = 'player4';
 
     const image = document.getElementById('image');
     const player = document.getElementById('player');
@@ -73,6 +74,15 @@
             player.style.marginTop = '130px';
             player.style.width = '200px';
         }
+        if(pressed.join('').includes(codeMario)){
+            player.style.backgroundImage = 'url(mario.png)';
+            player.style.height = '310px';
+            player.style.marginTop = '100px';
+            player.style.width = '130px';   
+            player.style.marginLeft = '125px';
+
+              
+        }
         console.log(pressed);
     });
 </script>
@@ -97,7 +107,7 @@
         position: absolute;
     }
     .text2{
-        width: 225px;
+        width: 190px;
         margin-top: 470px;
         position: absolute;
         right: 0px;
