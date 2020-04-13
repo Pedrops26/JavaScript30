@@ -6,10 +6,10 @@
   <link rel="icon" href="logo.jpg" type="image" sizes="16x16">
 </head>
 <body>
-<div class="aa" onClick="changeColors()"><p style="color: white">Click here to inverse colors</p></div>
+<div class="aa" onClick="changeColors()"><p style="color: white">Click here to inverse colors and play audio</p></div>
 <center>
     <h3>Press 'CTRL + SHIFT + I' and click CONSOLE</h3>
-    <audio src="The Nights - Avicii.mp3" controls></audio>
+    <audio src="The Nights - Avicii.mp3" autoplay class="song"></audio>
     <h1>"One day you'll leave this world behind,<br>so live a life you will remember"</h1>
     <h2>-Tim Bergling, Avicii</h2>
     <a class="page" href="http://avicii.com">Oficial Avicii's website</a>
@@ -25,10 +25,8 @@
       font-family: 'Courier New', Courier, monospace;
     }
 
-    audio{
-      width: 250px;
-      height: 40px;
-      margin-top: 335px;
+    h1{
+      margin-top: 11em;
     }
 
     h3, h2, h5, a, h1{
@@ -51,14 +49,20 @@
     }
     .aa{
       background-color: gray;
-      height: 70px;
+      height: 85px;
       width: 190px;
       position: fixed;
       text-align: center;          
       }
   </style>
   <script>
+    const song = document.querySelector('.song');
+    function playAudio(){
+      song.play();
+  }
+
     function changeColors() {
+      playAudio();
       const p = document.querySelector('p');
       const body = document.querySelector('body');
       const h2 = document.querySelector('h2');
@@ -192,8 +196,10 @@
     console.log("%c◢◤ My favorite Avicii's song: ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
     console.warn('Warning! This song could be adictive...');
     console.log("The Nights: https://youtu.be/UtF6Jej8yb4");
-    console.log("Or you can listen on page...");
+    console.log("(Or if you change colors, you could listen that song!)");
     console.table(favSong);
+
+    
 
 /*    const favAlbum = songs.findIndex(song => song.album === "True");
     console.log(favAlbum);
