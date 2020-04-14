@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guatapé</title>
+  <link rel="icon" href="icon.png" type="image" sizes="8x16">
+</head>
+<body>
+<center><img src="guatape.png" class="guatape">
+  <div class="site-wrap">
+    <h1>Mini-guía <br>Guatapé</h1>
+    <p>Es un municipio ubicado en Antioquia, Colombia. Abarca 76 kilómetros cuadrardos y ubicado a 1925 metros sobre el nivel del mar.</p>
+    <p>Es conocido como el pueblo de los zócalos (partes inferiores de las fachadas de las casas que son pintadas, 
+        generalmente de cemento), teniendo como alguien representativo a "Chepe" Parra, quien fue el que inició esta 
+        tendencia artística con el zócalo de un cordero, <img src="2.jpg" class="align-right slide-in" width="300px"> el cual se convirtió en símbolo importante de este lugar, ya que era muy común ver rebaños de este animal
+        y además sería una característica representativa de la cultura guatapense que conocemos hoy en día. A su vez, el municipio es reconocido por la represa que cubre la cuarta parte de su territorio; al momento de hacer esta represa, se tuvo que destruir la mayoría de la zona urbana que había en el municipio de El Peñol (del cual hablaremos en otra ocasión)</p>
+    <br><br><img src="3.jpg" class="align-left slide-in" width="300px">
+    <p>El diseño de los zócalos en las casas representan en algunas ocasiones el apellido o profesión de la familia que habite allí. Si por ejemplo la casa tiene una flor, la familia que habita aquí es florista.</p>
+    <p>En Guatapé podemos hacer diversas cosas, ya que es una zona altamente turística podemos encontrar muchas actividades para realizar:</p>
+    <br><img src="4.jpg" class="align-right slide-in" width="250px"><p><br>Recorrer el pueblo y ver los diversos zócalos que hay por todo el lugar. Esto lo podemos hacer en un moto-taxi el cual es un sistema de transporte típico y colorido. </p>
+    <br><br><img src="5.jpg" class="align-left slide-in" width="250px"><br><br>
+    <p><br><br>O lo podemos hacer a pie mientras comemos algo, Guatapé cuenta con muchos sitios de comidas típicas de Antioquia y Colombia, también de varios tipos de comida, incluyendo comida vegana.</p>
+    <p><br><br><br> <img src="6.jpg" class="align-right slide-in" width="300px"><br>Podemos visitar la plazoleta de los zócalos y tomarnos la típica foto en las escaleras, comprar algún recuerdo y tomar un café </p><br><br></p>
+    <p><img src="7.jpg" class="align-left slide-in" width="300px"><br>O ir a caminar un rato por el malecón y ver las letras, o tomar un barco para hacer un recorrido por la represa.</p>
+    <br><img src="8.jpg" class="align-right slide-in" width="250px">
+    <br><p><br><br><br>También hay actividades para la gente que es creyente o a los que les interesa la cultura religiosa. En el parque principal está la Iglesia de Nuestra Señora del Carmén, también con sus zócalos muy interesantes.</p>   
+    <br><p><img src="9.png" class="align-left slide-in" width="250px"> A unos minutos del parque, en moto-taxi, podemos llegar al Monasterio de los Monjes Benedictinos, un sitio no muy concurrido e interesante para visitar, es recomendable ir en un horario cuando estén haciendo cantos gregorianos. Los monjes que viven allí subsisten de vender cosas que hacen ellos desde medallas, hasta unos deliciosos chocolates.
+    <br><br><br><br> <img src="10.jpg" class="align-right slide-in" width="250px">Ellos alaban a San Benito, un monje el cual ha sido controversial ya que sus oraciones han sido tomadas para bien como para mal. Y para terminar, como dato curioso, al momento de ir al monasterio podemos observar que el viaje en moto-taxi es movidito ya que la carretera no está pavimentada, a los monjes se les ofreció pavimentar la ruta que llega a donde ellos, pero ellos no quisieron ya que como ellos ya están allá no lo necesitan y no están interesados en que ese sitio se vuelva exageradamente turístico como lo es el pueblo.</p>
+    <p><br>Próximamente, El Peñol...</p>
+  </div>
+  <h4>#CodexJavaScript30</h4>
+</center>
+  <script>
+    function debounce(func, wait = 20, immediate = true) {
+      var timeout;
+      return function() {
+        var context = this, args = arguments;
+        var later = function() {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    }
+    const sliderImages = document.querySelectorAll('.slide-in');
+    function checkSlide(e){
+        sliderImages.forEach(sliderImage => {
+            const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+            const imageBottom = sliderImage.offsetTop + sliderImage.height;
+            const isHalfShown = slideInAt > sliderImage.offsetTop;
+            const isNotScrolledPast = window.scrollY < imageBottom;
+            if(isHalfShown && isNotScrolledPast) {
+                sliderImage.classList.add('active');
+            } else {
+                sliderImage.classList.remove('active');
+            }
+      });
+    }
+    window.addEventListener('scroll', debounce(checkSlide));
+  </script>
+  <style>
+    html {
+      box-sizing: border-box;
+      background: url(fondo.jpg);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 20px;
+      font-weight: 200;
+    }
+    
+    body {
+      margin: 0;
+    }
+
+    center{
+        margin-top: 60px;
+    }
+    
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .site-wrap {
+      max-width: 700px;
+      margin: 80px 100px 100px 100px;
+      background: white;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .align-left {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .align-right {
+      float: right;
+      margin-left: 20px;
+    }
+
+    .slide-in {
+      opacity: 0;
+      transition: all .5s;
+    }
+
+    .align-left.slide-in {
+      transform: translateX(-30%) scale(0.95);
+    }
+    
+    .align-right.slide-in {
+      transform: translateX(30%) scale(0.95);
+    }
+
+    .slide-in.active {
+      opacity: 1;
+      transform: translateX(0%) scale(1);
+    }
+
+  </style>
+</body>
+</html>
