@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Idkwtd</title>
+  <link rel="icon" href="icon.jpg" type="image" sizes="16x16">
+</head>
+<body>
+<center><br>
+<h2 class="me">Hi, I'm Pedro. 19 years old. Medellín, Colombia.
+<h3><br><br>University of Antioquia, System Engineering Student, I'm in ¿? semester.</h3>
+<h4>Italian noob, Tennis noob, Programmer noob, life noob :v</h4>
+<h5>(Actually in quarantine, F)</h5>
+</h2><br><br>
+<h2>I didn't know what to do... so I give you spam:</h2>
+<h1>My Twitter: <a href="twitter.com/Pedrops26">@Pedrops26</a></h1>
+<h1>My Instagram: <a href="instagram.com/Pedrops26">@Pedrops26</a></h1>
+<h1>I like this songs: <a href="https://www.youtube.com/playlist?list=PL3tHWhzKaAEj9flMPf5p6gbENPET466hB">Playlist on Youtube</a></h1>
+<br><br><h4>#CodexJavaScript30</h4>
+</center>
+  <script>
+      const player = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+      const team = players;
+
+      team[3] = 'Lux';
+
+      const team2 = player.slice();
+
+      const team3 = [].concat(players);
+
+      const team4 = [...players];
+      team4[3] = 'heee hawww';
+      console.log(team4);
+
+      const team5 = Array.from(players);
+
+      const person = {
+          name: 'Wes Bos', age: 50
+      }
+
+      const captain = person;
+      captain.number = 99;
+
+      const cap2 = Object.assign({}, person, {number: 99});
+
+      const cap3 = {...person};
+
+      const pedro = {
+          name: 'Pedro',
+          age: '19',
+          social: {
+              twitter: '@pedrops26',
+              instagram: '@pedrops26'
+          }
+      }
+      console.clear();
+      console.log(pedro);
+
+      const dev = Object.assign({}, pedro);
+      const dev2 = JSON.parse(JSON.stringify(pedro));
+  </script>
+<style>
+    body{
+        background-color: black;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .me{
+        background-color: white;
+        width: 30em;
+        color: black;
+        box-shadow: 18px 10px 21px 6px rgba(168,168,168,1);
+    }
+    h1, h2, h3, h4, h5{
+        color: white;
+    }
+</style>
+</body>
+</html>
