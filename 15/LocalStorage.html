@@ -13,8 +13,7 @@
     <h4>#CodexJavaScript30</h4> 
   <div class="wrapper">
     <p></p>
-    <ul class="plates">
-     
+    <ul class="plates"> 
     </ul>
     <form class="add-items">
       <input type="text" name="item" required><br>
@@ -67,7 +66,6 @@
 
   function deleteHandler(e) {  //Credits: Stef Cola
   localStorage.clear()
-
   populateList([], itemsList)
   }
 
@@ -86,11 +84,7 @@
   itemsList.addEventListener('click', toggleDone);
   deleteButton.addEventListener('click', deleteHandler)  
   buttons.forEach(button => button.addEventListener('click', handleButton))
-
   populateList(items, itemsList);
-
-
-
 </script>
 
 
