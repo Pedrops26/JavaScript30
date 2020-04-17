@@ -78,10 +78,10 @@
         if(xWalk === 0 && yWalk === 0){
           text.style.textShadow = `${yWalk}px ${xWalk}px 0 black`;
         } else {
-          text.style.textShadow = `${yWalk}px ${xWalk}px 0 red,
-                                ${yWalk}px ${xWalk * -1}px 0 rgba(0,255,255,10),
-                                ${xWalk* -1}px ${yWalk}px 0 rgba(0,255,0,0.7),
-                                ${xWalk}px ${yWalk* -1}px 0 rgba(0,0,255,0.7)`; 
+          text.style.textShadow = `${yWalk}px ${xWalk}px 0 rgba(255, 0, 0, 0.8),
+                                ${yWalk}px ${xWalk * -1}px 0 rgba(0,255,255,0.8),
+                                ${xWalk* -1}px ${yWalk}px 0 rgba(0,255,0,0.8),
+                                ${xWalk}px ${yWalk* -1}px 0 rgba(0,0,255,0.8)`; 
         } 
     }
     hero.addEventListener('mousemove', shadow);
