@@ -6,6 +6,7 @@
   <link rel="icon" href="icon.jpg" type="image" sizes="16x16">
 </head>
 <body>
+  <audio src="song.mp3" autoplay class="songGF"></audio>
   <div class="hero">
       <div class="oval">
           <center>
@@ -56,7 +57,13 @@
     const text = hero.querySelector('h1');
     const walk = 100;
 
+    const songGF = document.querySelector('.songGF');
+    function playAudio(){
+      songGF.play();
+  }
+
     function shadow(e){
+      playAudio();
         const { offsetWidth: width, offsetHeight: height} = hero;
         let { offsetX: x, offsetY: y } = e;
 
@@ -73,7 +80,6 @@
                                 ${xWalk* -1}px ${yWalk}px 0 rgba(0,255,0,0.7),
                                 ${xWalk}px ${yWalk* -1}px 0 rgba(0,0,255,0.7)`; 
     }
-
     hero.addEventListener('mousemove', shadow);
 </script>
 </body>
