@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tally String Times</title>
+  <link rel="icon" href="logo.jpg" type="image" sizes="16x16">
+</head>
+<body>
+<div class="aa" onClick="changeColors()"><p style="color: white"> Click here </p></div>
+<center>
+    <h3>Press 'CTRL + SHIFT + I' and click CONSOLE</h3>
+    <audio src="The Nights - Avicii.mp3" autoplay class="song"></audio>
+    <h1>"One day you'll leave this world behind,<br>so live a life you will remember"</h1>
+    <h2>-Tim Bergling, Avicii</h2>
+    <h4>Some of his songs<br>(More info on console)</h4>
+    <ul class="songs">
+      <li data-time="2:28">
+        Addicted To You
+      </li>
+      <li data-time="4:15">
+        Hey Brother
+      </li>
+      <li data-time="3:28">
+        I Could Be The One
+      </li>
+      <li data-time="3:19">
+        Levels
+      </li>
+      <li data-time="3:01">
+        Loneley Together
+      </li>
+      <li data-time="3:31">
+        Silhouettes
+      </li>
+      <li data-time="4:38">
+        The Days
+      </li>
+      <li data-time="2:56">
+        The Nights
+      </li>
+      <li data-time="3:50">
+        Waiting For Love
+      </li>
+      <li data-time="4:09">
+        Wake Me Up
+      </li>
+      <li data-time="3:16">
+        Without You
+      </li>
+      <li data-time="3:53">
+        You Make Me
+      </li>
+    </ul>
+    <a class="page" href="http://avicii.com">Oficial Avicii's website</a>
+    <h5>#CodexJavaScript30</h5>
+  </center>
+
+<script>
+const song = document.querySelector('.song');
+    function playAudio(){
+      song.play();
+  }
+    var bool = true;
+    function changeColors() {
+      playAudio();
+      const p = document.querySelector('p');
+      const body = document.querySelector('body');
+      const h1 = document.querySelector('h1');
+      const h2 = document.querySelector('h2');
+      const h3 = document.querySelector('h3');
+      const h4 = document.querySelector('h4');
+      const h5 = document.querySelector('h5');
+      const a = document.querySelector('a');
+      const aa = document.querySelector('aa');
+      const ul = document.querySelector('ul');
+      if(bool == true){
+        body.style.backgroundImage = 'url(logo2.jpg)';
+        body.style.backgroundColor = 'black';
+        h1.style.color = 'white';
+        h2.style.color = 'white';
+        h3.style.color = 'white';
+        h4.style.color = 'white';
+        h5.style.color = 'white';
+        a.style.color = 'white';
+        ul.style.color = 'white';
+        bool = false;
+      } else {
+        body.style.backgroundImage = 'url(logo.jpg)';
+        body.style.backgroundColor = 'white';
+        h1.style.color = 'black';
+        h2.style.color = 'black';
+        h3.style.color = 'black';
+        h4.style.color = 'black';
+        h5.style.color = 'black';
+        a.style.color = 'black';
+        ul.style.color = 'black';
+        bool = true;
+      }
+
+    }
+    console.log('%cIn memory of Tim Bergling, Avicii◢◤', 'color: white; font-size: 50px; background: black; text-shadow: 3px 3px 5px gray');
+    console.log('%c(1989-2018)', 'color: white; font-size: 30px; background: black; text-shadow: 3px 3px 10px gray');
+  
+    const songs = [
+      { name: 'Wake Me Up', with: 'Aloe Blacc', album: 'True', year: 2013, views: 1910, won: 3, nom: 9},
+      { name: 'Hey Brother', with: 'Dan Tyminski', album: 'True', year: 2013, views: 493, won: 0, nom: 1},
+      { name: 'The Days', with: 'Robbie Williams', album: 'Stories', year: 2014, views: 180, won: 0, nom: 2},
+      { name: 'Loneley Together', with: 'Rita Ora', album: 'AVĪCI (01)', year: 2017, views: 153, won: 1, nom: 2},
+      { name: 'Without You', with: 'Sandro Cavazza', album: 'AVĪCI (01)', year: 2017, views: 130, won: 0, nom: 1},
+      { name: 'Waiting For Love', with: 'Cherry Ghost', album: 'Stories', year: 2015, views: 709, won: 0, nom: 1},
+      { name: 'Levels', with: 'Etta James', album: 'No album', year: 2011, views: 474, won: 1, nom: 5},
+      { name: 'I Could Be The One', with: 'Nicky Romero', album: 'No album', year: 2012, views: 308, won: 0, nom: 0},
+      { name: 'You Make Me', with: 'Salem Al Fakir', album: 'True', year: 2013, views: 135, won: 0, nom: 0},
+      { name: 'Silhouettes', with: 'Salem Al Fakir', album: 'No album', year: 2012, views: 960, won: 0, nom: 1},
+      { name: 'Addicted To You', with: 'Audra Mae', album: 'True', year: 2013, views: 264, won: 0, nom: 0},
+      { name: 'The Nights', with: 'Nicholas Furlong', album: 'Stories', year: 2014, views: 538, won: 0, nom: 1}
+    ];
+    const people = ['Nicholas Furlong', 'Audra Mae', 'Salem Al Fakir', 'Nicky Romero', 'Etta James', 'Cherry Ghost',
+                    'Sandro Cavazza', 'Rita Ora', 'Robbie Williams', 'Dan Tyminski', 'Aloe Blacc'];
+    console.log("");
+    console.log("%c◢◤ Some of his songs most viewed(millions) on YouTube: ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    const mostViews = songs.filter(song => (song.views > 700));
+    console.table(mostViews);
+    console.log("");
+    console.log("%c◢◤ Some of his last songs on YouTube: ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    const last = songs.filter(song => (song.year > 2016));
+    console.table(last);
+    console.log("");
+    console.log("%c◢◤ Songs from oldest to newest: ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    const ordered = songs.sort((a, b) => a.year > b.year ? 1 : -1);
+    console.table(ordered);
+    console.log("");
+    const totalViews = songs.reduce((total, song) => {
+        return total + song.views;
+    }, 0);
+    console.log("%c◢◤ How many views do this songs? ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    console.log(totalViews+" million views.");
+    console.error('Sh*t! So many views!');
+    console.log("");
+
+    const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+    const seconds = timeNodes
+        .map(node => node.dataset.time)
+        .map(timeCode => {
+            const [mins, secs] = timeCode.split(':').map(parseFloat);
+            return (mins * 60) + secs;
+            console.log(mins, secs);
+        })
+        .reduce((total, songSeconds) => total + songSeconds);
+
+        let secondsLeft = seconds;
+        const hours = Math.floor(secondsLeft / 3600);
+        secondsLeft = secondsLeft % 3600;
+        const mins = Math.floor(secondsLeft / 60);
+        secondsLeft = secondsLeft % 60;
+        console.log("%c◢◤ How many time you spend listen this songs? ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+        console.log(hours+" hours", mins+" minutes", secondsLeft+" seconds");
+        console.log("");
+
+    console.log("%c◢◤ Sorting people who he colaborated alphabetically by name: ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    const alpha = people.sort((lastOne, nextOne) =>{
+          const [aWith] = lastOne.split(', ');
+          const [bWith] = nextOne.split(', ');
+          return aWith > bWith ? 1 : -1;
+        });
+        console.table(alpha);
+    console.log("");
+    songs.forEach(song => {
+        console.group(`${song.with}`)
+        console.log(`${song.name}, ${song.year}`);
+        console.groupEnd(`${song.with}`);
+    });
+    
+    console.log("");
+    console.log('%cDid you know?', 'color: white; background: black; font-size: 15px; text-shadow: 3px 3px 10px gray');
+    console.info('There is a rumor about Avicii tried to expose a pedophile and human trafficking ring, that involved some important people with high ranks. The rumor could be true, because video of "For A Better Day" show us this situation...');
+    console.info("You can see video here: https://youtu.be/Xq-knHXSKYY");
+    console.log("");
+    console.log("%c◢◤ Sum up most viewed songs by year: ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    const data = ['2013', '2013', '2014', '2017', '2017', '2015', '2011', '2012', '2013', '2012', '2013', '2014'];
+    const songYear = data.reduce(function(a, b) {
+      if (!a[b]) {
+        a[b] = 0;
+      }
+      a[b]++;
+      return a;
+    }, {});
+    console.table(songYear);
+    console.log("");
+    console.log("%c◢◤ All songs are from an album?", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    const allAlbum = songs.every(song => (song.album == "True" || song.album == "Stories" || song.album == "AVĪCI (01)"));
+    console.log({allAlbum});
+    console.log("");
+    console.log("Some of his songs without album: ");
+    const wAlbum = songs.filter(song => (song.album == "No album"));
+    console.table(wAlbum);
+    console.log("");
+    console.log("%c◢◤ Sum up most viewed songs by album: ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    const data2 = ['True', 'True', 'Stories', 'AVĪCI (01)', 'AVĪCI (01)', 'Stories', 'No album', 'No album', 'True', 'No album', 'True', 'Stories'];
+    const songAlbum = data2.reduce(function(a, b) {
+      if (!a[b]) {
+        a[b] = 0;
+      }
+      a[b]++;
+      return a;
+    }, {});
+    console.table(songAlbum);
+    console.log("");
+    console.log("%c◢◤ There is at least one song with 3 awards?", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    const award = songs.some(song => (song.won >= 3));
+    console.log({award});
+    const songWon = songs.filter(song => (song.won >= 3));
+    console.table(songWon);
+    console.log("'Wake me up' won: ");
+    console.log("Top dance/electronic song, Billboard Music Awards, 2014");
+    console.log("EDM Song of year, iHeartRadio Music Awards, 2014");
+    console.log("Choice EDM Song, Teen Choice Awards, 2014");
+
+    const totalAwardsWon = songs.reduce((total, song) => {
+        return total + song.won;
+    }, 0);
+
+    const totalNom = songs.reduce((total, song) => {
+        return total + song.nom;
+    }, 0);
+    console.log("");
+    console.log("%c◢◤ How many awards he won?", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    console.log("He won in totally "+(totalAwardsWon+16)+" awards from "+(totalNom+17)+" nominations, even after his dead.");
+    console.log("");
+    console.log('%cDid you know?', 'color: white; background: black; font-size: 15px; text-shadow: 3px 3px 10px gray');
+    console.info('The official Avicii website, now is a memory page to honor to him, where fans send their messages and you can read them.');
+    const favSong = songs.find(fav => fav.views === 538);
+    console.log("%c◢◤ My favorite Avicii's song: ", 'color: white; font-size: 15px; background: black; text-shadow: 3px 3px 2px gray');
+    console.warn('Warning! This song could be adictive...');
+    console.log("The Nights: https://youtu.be/UtF6Jej8yb4");
+    console.log("(Or if you change colors, you could listen that song!)");
+    console.table(favSong);
+</script>
+<style>
+  body{
+  background-color: white;
+  background-image: url(logo.jpg);
+  background-position:top;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1{
+  margin-top: 11em;
+}
+
+h3, h2, h5, a, h1{
+  color: black;
+}
+
+a{
+    font-size: 20px;
+}
+
+.page{
+    font-size: 15px;
+}
+h2{
+  margin-top: 30px;
+}
+
+h5{
+  margin-top: 50px;
+}
+.aa{
+  background-color: gray;
+  width: 110px;
+  position: fixed;
+  text-align: center;          
+  }
+
+  li{
+    list-style: none;
+  }
+
+  ul{
+    border: 10px solid rgb(158, 158, 158);
+    border-radius: 20px;
+    padding: 3px;
+    width: fit-content;
+  }
+</style>
+</body>
+</html>
