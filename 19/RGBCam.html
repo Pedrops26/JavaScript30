@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RGB Photos</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon.jpg" type="image" sizes="8x16">
+</head>
+<body>
+  <div class="photobooth">
+    <center><h1 style="color: white;">#CodexJavaScript30</h1></center>
+    <div class="controls">
+      <button onClick="takePhoto()">📷</button>
+    </div>
+<center>
+  <canvas class="photo"></canvas>
+</center>
+    <video class="player"></video>
+    <center><h1 style="color: white; margin-left: 20px;";>Your photos:</h1></center>
+    <div class="strip"></div>
+  </div>
+  <audio class="snap" src="https://wesbos.com/demos/photobooth/snap.mp3" hidden></audio>
+  <script src="scripts.js"></script>
+</body>
+</html>
