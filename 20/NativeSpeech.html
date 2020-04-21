@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Detection</title>
+  <link rel="icon" href="icon.png" type="image" sizes="8x16">
+</head>
+<body>
+<center>
+    <h2>ADIVINA LA PELICULA</h2>
+    <h4>Activa tu micrófono y adivina la película que forma cada fila de emojis</h4>
+    <h5>#CodexJavaScript30</h5>
+</center>
+<img src="emoji.png">
+  <div class="words" contenteditable>
+  </div>
+<script>
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition =  new SpeechRecognition();
+  recognition.interimResults = true;
+  let p = document.createElement('p');
+  const words = document.querySelector('.words');
+  words.appendChild(p);
+  recognition.addEventListener('result', e => {
+      const transcript = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+        p.textContent = transcript;
+        if(e.results[0].isFinal){
+            p = document.createElement('p');
+            words.appendChild(p);
+            p.style.backgroundColor = 'white';
+        }
+       //¡NO HAGAS TRAMPA, DIOSITO SE PONE TRISTE Y MUEREN 30 PANDAS BEBÉ!
+        if(transcript.includes('Coco') || transcript.includes('coco') || transcript.includes('señor de los anillos') || transcript.includes('lobo de Wall Street') || transcript.includes('Lobo de Wall Street') || transcript.includes('libro de la selva') || transcript.includes('E.T') || transcript.includes('He te') || transcript.includes('Náufrago') || transcript.includes('náufrago') || transcript.includes('gato con botas') || transcript.includes('Harry Potter') || transcript.includes('harry potter') || transcript.includes('proyecto de la bruja de Blair') || transcript.includes('planeta de los simios') || transcript.includes('noche en el museo') || transcript.includes('al futuro') || transcript.includes('Ratatouille') || transcript.includes('ratatouille')){
+            p.style.backgroundColor = 'green';
+        } else {
+            p.style.backgroundColor = 'white';
+        }
+        console.log(transcript);
+  });
+  recognition.addEventListener('end', recognition.start);
+  recognition.start();
+</script>
+
+
+  <style>
+    html {
+      font-size: 10px;
+    }
+
+    body {
+      background: gray;;
+      font-family:'Courier New', Courier, monospace;
+      font-weight: 200;
+      font-size: 20px;
+    }
+
+    .words {
+      max-width: 500px;
+      margin: 50px 0px 0px 550px;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+      padding: 1rem 2rem 1rem 5rem;
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+      background-size: 100% 3rem;
+      position: relative;
+      line-height: 3rem;
+    }
+    
+    p {
+      margin: 0 0 3rem;
+    }
+
+    .words:before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      top: 0;
+      left: 30px;
+      bottom: 0;
+      border: 1px solid;
+      border-color: transparent #efe4e4;
+    }
+
+    img{
+        width: 110px;
+        position: absolute;
+        margin-left: 300px;
+        margin-top: 50px
+    }
+  </style>
+
+</body>
+</html>
