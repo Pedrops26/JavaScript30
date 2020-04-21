@@ -15,6 +15,7 @@
   <div class="words" contenteditable>
   </div>
 <script>
+  var i = 0;
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition =  new SpeechRecognition();
   recognition.interimResults = true;
@@ -35,6 +36,11 @@
        //¡NO HAGAS TRAMPA, DIOSITO SE PONE TRISTE Y MUEREN 30 PANDAS BEBÉ!
         if(transcript.includes('Coco') || transcript.includes('coco') || transcript.includes('señor de los anillos') || transcript.includes('lobo de Wall Street') || transcript.includes('Lobo de Wall Street') || transcript.includes('libro de la selva') || transcript.includes('E.T') || transcript.includes('He te') || transcript.includes('Náufrago') || transcript.includes('náufrago') || transcript.includes('gato con botas') || transcript.includes('Harry Potter') || transcript.includes('harry potter') || transcript.includes('proyecto de la bruja de Blair') || transcript.includes('planeta de los simios') || transcript.includes('noche en el museo') || transcript.includes('al futuro') || transcript.includes('Ratatouille') || transcript.includes('ratatouille')){
             p.style.backgroundColor = 'green';
+            i = i+1;
+            if(words.includes('oco') &&  words.includes('señor de los anillos') &&  words.includes('obo de Wall Street') &&  words.includes('libro de la selva') &&  words.includes('E.T') &&  words.includes('áufrago') &&  words.includes('gato con botas') &&  words.includes('Harry Potter') &&  words.includes('bruja de Blair') &&  words.includes('laneta de los simios') &&  words.includes('oche en el museo') &&  words.includes('al futuro') &&  words.includes('atatouille')){
+                p.textContent = 'ADIVINASTE 12/12 !';
+            }
+
         } else {
             p.style.backgroundColor = 'white';
         }
