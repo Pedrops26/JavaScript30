@@ -1,0 +1,69 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    background: url(fondo.jpg);
+    background-size: cover;
+  }
+  
+  .wrapper {
+    margin: 0 auto;
+    max-width: 500px;
+    font-size: 40px;
+    line-height: 2;
+    position: relative;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    background: rgba(107, 107, 107, 0.5);
+    border-radius: 20px;
+  }
+
+  .codex{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .highlight {
+    transition: all 0.2s;
+    border-bottom: 2px solid white;
+    position: absolute;
+    top: 0;
+    background: white;
+    left: 0;
+    z-index: -1;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 0 10px rgba(46, 46, 46, 0.897);
+  }
+  
+  .menu {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    text-align: center;
+    margin:100px 0;
+  }
+  
+  .menu a {
+    display: inline-block;
+    padding: 5px;
+    margin: 0 20px;
+    color: white;
+  }
+
+  h1, h3{
+    color: rgb(235, 235, 235);
+  }
