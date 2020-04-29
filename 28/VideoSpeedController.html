@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beemo's Media Player</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon.jpg" type="image" sizes="16x16">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="one">
+    <center>
+        <h4>#CodexJavaScript30</h4>
+    </center>
+   <div class="player">
+     <video class="player__video viewer" src="gopro.mp4"></video>
+     <!--Link video: https://youtu.be/MKunD8H3G-8-->
+     <div class="player__controls">
+       <div class="progress">
+        <div class="progress__filled"></div>
+       </div>
+     </div>
+   </div>
+   <div class="speed">
+    <div class="speed-bar">1×</div>
+  </div>
+<div class="cross"></div>
+<div class="triangle" onclick="togglePlay()"><h5 class="playText">►</h5></div>
+<div class="circle" onclick="toggleSound()"><h5 class="soundText">🔊</h5></div>
+<div class="circle2" onclick="skipBefore()"><h5>◄10s</h5></div>
+<div class="circle3" onclick="skipAfter()"><h5>10s►</h5></div>
+</div>
+  <script src="scripts.js"></script>
+</body>
+</html>
